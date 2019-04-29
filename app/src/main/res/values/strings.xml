@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">pokeDex</string>
+    <string name="poke_image_content_description">This image contains the picture of the pokemon that was selected</string>
+    <string name="height">Height: %1$s Meters</string>
+    <string name="weight">Weight: %1$s Kilograms</string>
+    <string name="type1">Primary Type: %1$s</string>
+    <string name="type2">Secondary Type: %1$s</string>
+</resources>
