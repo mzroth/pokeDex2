@@ -1,1 +1,5 @@
 /build
+pokeDex.iml
+*.iml
+local.properties
+app.iml
