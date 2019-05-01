@@ -18,7 +18,7 @@ import java.lang.IllegalStateException
 
 private const val POKEMON_TOTAL_NUMBER = "807"
 
-class MainActivity: AppCompatActivity(),
+class MainActivity : AppCompatActivity(),
     PokemonListRecyclerViewAdapter.PokemonListRecyclerViewClickListener {
 
     //    variables
@@ -36,14 +36,12 @@ class MainActivity: AppCompatActivity(),
         }
 
 //        asynchronous API call
-        pokeService.getAllPokemon(POKEMON_TOTAL_NUMBER).enqueue(object: Callback<AllPokemon> {
+        pokeService.getAllPokemon(POKEMON_TOTAL_NUMBER).enqueue(object : Callback<AllPokemon> {
             override fun onResponse(call: Call<AllPokemon>, response: Response<AllPokemon>) {
-                response.body()?.results.let {
-                    if (it != null) {
-                        list = it
-                    } else {
-                        onFailure(call, IllegalStateException())
-                    }
+                response.body()?.results?.let {
+                    list = it
+                } ?: run {
+                    onFailure(call, IllegalStateException())
                 }
                 val recyclerViewAdapter = pokemon_list_recycler_view.adapter as? PokemonListRecyclerViewAdapter
                 recyclerViewAdapter?.updateList(list)
